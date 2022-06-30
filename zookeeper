@@ -1,0 +1,16 @@
+[Unit]
+Description=Zookeeper
+After=network.target
+After=syslog.target
+
+[Service]
+Type=forking
+ExecStart=/opt/zookeeper/bin/zkServer.sh start
+ExecStop=/opt/zookeeper/bin/zkServer.sh stop
+ExecReload=/opt/zookeeper/bin/zkServer.sh restart
+PIDFile=/data/zookeeper/zookeeper_server.pid
+User=root
+Group=root
+Restart=on-failure
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,25 @@
+[Unit]
+Description=kafka
+Documentation=http://kafka.apache.org/documentation.html
+# 必须的
+Requires=zookeeper.service
+# 在network zookeeper启动后运行
+After=network.target
+ 
+[Service]
+# 指定用户
+User=root
+# 指定用户
+Group=root
+Type=simple
+# 工作目录
+WorkingDirectory=/opt/kafka
+# 启动命令
+ExecStart=/opt/kafka/bin/kafka-server-start.sh /opt/kafka/config/server.properties
+# 停止命令
+ExecStop=/opt/kafka/bin/kafka-server-stop.sh /opt/kafka/config/server.properties
+ 
+Restart=on-failure
+ 
+[Install]
+WantedBy=multi-user.target
