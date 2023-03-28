@@ -1,0 +1,16 @@
+[Unit]
+Description=Mysqld_exporter
+Documentation=https://prometheus.io/
+After=network.target
+
+[Service]
+Type=simple
+User=root
+Group=root
+ExecStart=/opt/mysqld_exporter-0.14.0.linux-amd64/mysqld_exporter --config.my-cnf=/opt/mysqld_exporter-0.14.0.linux-amd64/.my.cnf
+ExecReload=/bin/kill -s HUP $MAINPID
+ExecStop=/bin/kill -s QUIT $MAINPID
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target

@@ -18,7 +18,6 @@ WorkingDirectory=/opt/kafka
 ExecStart=/opt/kafka/bin/kafka-server-start.sh /opt/kafka/config/server.properties
 # 停止命令
 ExecStop=/opt/kafka/bin/kafka-server-stop.sh /opt/kafka/config/server.properties
- 
 Restart=on-failure
  
 [Install]

@@ -12,5 +12,6 @@ PIDFile=/data/zookeeper/zookeeper_server.pid
 User=root
 Group=root
 Restart=on-failure
+
 [Install]
 WantedBy=multi-user.target

@@ -1,0 +1,13 @@
+[Unit]
+Description=Grafana
+Documentation=https://grafana.com/docs/
+After=network.target
+
+[Service]
+User=root
+Group=root
+ExecStart=/opt/grafana-9.4.7/bin/grafana-server  --config=/opt/grafana-9.4.7/conf/defaults.ini --homepath=/opt/grafana-9.4.7
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target
